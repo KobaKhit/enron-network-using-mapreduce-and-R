@@ -1,6 +1,6 @@
 # Enron Network
 
-![](script_files/figure-html/unnamed-chunk-4-1.png)
+![](mis680project/script_files/figure-html/unnamed-chunk-4-1.png)
 
 ##  What is it about?
 We decided to use the Enron data set to explore the social network part of it. At this point 
