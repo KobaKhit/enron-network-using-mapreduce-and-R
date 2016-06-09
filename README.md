@@ -2,8 +2,8 @@
 
 
 <div style = "text-align:center">
+<h4>Enron Network over Time Based on Sent Emails<msall> | Date Range: 1998-11->2001-04</small></h4>
 <a href = "https://rpubs.com/Koba/enron-network" target = "_blank"><img src="https://github.com/KobaKhit/enron-network-using-mapreduce-and-R/blob/master/R/final_files/figure-html/unnamed-chunk-7-1.png" width = "80%"/></a>
-<h4>Enron Network oevr Time Based on Sent Emails</h4>
 </div>
 ## What it is about?
 
