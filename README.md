@@ -1,7 +1,9 @@
 # Network analysis of Enron emails
 
+**Enron network over time**
+<div>
 <a href = "https://rpubs.com/Koba/enron-network" target = "_blank"><img src="https://github.com/KobaKhit/enron-network-using-mapreduce-and-R/blob/master/R/final_files/figure-html/unnamed-chunk-7-1.png" width = "80%" style = "display:block; margin: 0 auto;" align = "middle"/></a>
-
+</div>
 ## What it is about?
 
 We explore the social network aspect of the [Enron Email dataset](http://www.cs.cmu.edu/~enron/). We use hadoop and shell as an alternative to transform the semi-unstructured email data into something we can work with. Using this data we will be able to visualize the social network grouped by the metrics such as edge betwenness, centrality index, etc. 
