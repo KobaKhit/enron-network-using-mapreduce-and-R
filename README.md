@@ -1,6 +1,6 @@
 # Network analysis of Enron emails
 
-<img src="https://github.com/KobaKhit/enron-network-using-mapreduce-and-R/blob/master/R/final_files/figure-html/unnamed-chunk-7-1.png"/>
+<img src="https://github.com/KobaKhit/enron-network-using-mapreduce-and-R/blob/master/R/final_files/figure-html/unnamed-chunk-7-1.png" width = "80%"/>
 
 ## What it is about?
 
