@@ -1,6 +1,6 @@
 # Instructions on using shell scripts
 
-Commands executed in current directory.
+**Commands executed in current directory.**
 
 ### count-emails.sh
 Gets the count of emails in a folder (sent, or inbox) from the original dataset.
