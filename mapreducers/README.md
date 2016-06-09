@@ -74,7 +74,8 @@ hadoop jar /usr/lib/hadoop-mapreduce/hadoop-streaming.jar -input enron-inbox \
 -mapper mapper1.py -reducer reducer1.py
 
 # download results
-hadoop
+hadoop fs -cat conns-sent > conns-sent.txt
+hadoop fs -cat conns-inbox > conns-inbox.txt
 ```
 
 Edit the `reducer1.py` file. Comment out lines 37 and 43. Uncomment lines  38 and 44.
@@ -83,12 +84,16 @@ For below commands I just changed the output filename to `n-conns-inbox.txt`.
 
 ```
 hadoop jar /usr/lib/hadoop-mapreduce/hadoop-streaming.jar -input enron-sent \
--output n-conns-sent -file mapper1.py -file reducer1.py \
--mapper mapper1.py -reducer reducer1.py
+-output n-conns-sent -file mapper2.py -file reducer2.py \
+-mapper mapper1.py -reducer reducer2.py
 
 hadoop jar /usr/lib/hadoop-mapreduce/hadoop-streaming.jar -input enron-inbox \
--output n-conns-inbox mapper1.py -file reducer1.py \
--mapper mapper1.py -reducer reducer1.py
+-output n-conns-inbox mapper2.py -file reducer2.py \
+-mapper mapper2.py -reducer reducer2.py
+
+# download results
+hadoop fs -cat n-conns-sent > n-conns-sent.txt
+hadoop fs -cat n-conns-inbox > n-conns-inbox.txt
 ```
 
 ### Shell
