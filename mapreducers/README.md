@@ -49,14 +49,15 @@ Example:
 
 Output: 
 
-`date<TAB>sender<TAB>receiver<TAB>subject<TAB>id`
+`sender<TAB>date<TAB>receiver<TAB>subject<TAB>id`
 
 Example:
 
 ```
-2001-05-10 00:50:00	phillip k allen	jsmith@austintx.com	None	156
-2001-05-10 23:26:00	phillip k allen	outlook migration team	None	155
-2001-05-14 01:39:00	phillip k allen	colin tonks	resumes	154
+stephanie piwetz	1998-10-30 07:43:00	kate symes	39005
+elizabeth sager sara shackleton	1998-10-30 07:56:00	mark - ect legal taylor	39502
+alison smythe 	1998-10-30 08:02:00	mark - ect legal taylor	39587
+
 ```
 
 ## Usage

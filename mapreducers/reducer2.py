@@ -10,10 +10,10 @@ import re
 
 # Reducer.py output
 # if identity function is used
-# date<TAB>sender<TAB>eceivers<TAB>subject<TAB>id
+# sender<TAB>date<TAB>receivers<TAB>subject<TAB>id
 
 # Long format
-# date<TAB>sender<TAB>reciever<TAB>id
+# sender<TAB>date<TAB>reciever<TAB>id
 
 
 for line in sys.stdin:

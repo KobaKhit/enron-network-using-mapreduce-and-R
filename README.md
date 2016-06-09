@@ -1,16 +1,20 @@
 # Network analysis of Enron emails
 
-# What it is about?
+<img src="R/final_files/figure-html/unnamed-chunk-7-1.png 
+"/>
+
+## What it is about?
 
 We explore the social network aspect of the [Enron Email dataset](http://www.cs.cmu.edu/~enron/). We use hadoop and shell as an alternative to transform the semi-unstructured email data into something we can work with. Using this data we will be able to visualize the social network grouped by the metrics such as edge betwenness, centrality index, etc. 
 
-The reason it is an intersting project is to see how a network of people behaved in a company that was caught doing fraud. Additionally, this project is a great way to learn about dealing with large unstructured data using the mapreduce concept and open source tools like a hadoop virtual machine.
+The reason it is an intersting project is to see how a network of people behaved in a company that was caught doing fraud. Additionally, this project is a great way to learn about dealing with large unstructured data using the mapreduce concept and open source tools like hadoop virtual machine and R.
 
-The most challenging part of this project was coming up with rules to extract the metrics we wanted from the emails using mapreduce. We have done this with regular expressions, python and linux shell/hadoop. Additionally, it so happened that **one worker node is much slower than shell** when executing the mapreduce jobs. We provide examples in the code section for both shell and hadoop. We ran two mapreduce jobs in shell and they completed in around 25 minutes each.
+The most challenging part of this project was coming up with rules to extract the metrics we wanted from the emails using mapreduce. We have done this with regular expressions, python and unix shell/hadoop. Additionally, it so happened that **one worker node is much slower than shell** when executing the mapreduce jobs. We provide examples in the code section for both shell and hadoop. We ran two mapreduce jobs in shell and they completed in around 25 minutes each.
 
+## Code
 ## Upload Enron data to hadoop
 
-Assuming the `enron-emails` data set folder is in the `data` folder. You can download the Enron Email Dataset from 
+Assuming the `enron-emails` dataset folder is in the `data` folder. You can download the Enron Email Dataset from 
 [this link](http://www.cs.cmu.edu/~enron/). **Commands are executed from current (`enron-network-using-mapreduce-and-R/`) directory.**
 
 For hadoop we are using [CDH 5.5 virtual machine](http://www.cloudera.com/downloads/cdh/5-5-0.html) by Cloudera.
@@ -45,6 +49,9 @@ hadoop jar /usr/lib/hadoop-mapreduce/hadoop-streaming.jar -input enron-sent \
 hadoop jar /usr/lib/hadoop-mapreduce/hadoop-streaming.jar -input enron-inbox \
 -output enron-inbox-out -file mapper1.py -file reducer1.py \
 -mapper mapper1.py -reducer reducer1.py
+
+# download results
+hadoop fs -get training/shakespeare/poems ~/shakepoems.txt
 ```
 
 ### Shell
