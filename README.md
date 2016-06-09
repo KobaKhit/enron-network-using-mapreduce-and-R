@@ -21,7 +21,7 @@ Assuming the `enron-emails` dataset folder is in the `data` folder. You can down
 
 For hadoop we are using [CDH 5.5 virtual machine](http://www.cloudera.com/downloads/cdh/5-5-0.html) by Cloudera.
 
-First, you will have to run `emails-rename.sh` shell script to give the email files unique names instead of repeating numbers. Refer to [this README.md](/shell-scripts/README.md) in `shell-scripts/` for more info.
+First, you will have to run `emails-rename.sh` shell script to give the email files unique names instead of repeating numbers. Refer to [this README.md](/hell-scripts/README.md) in `shell-scripts/` for more info.
 
 ```
 mkdir data/enron-emails-sent
@@ -39,7 +39,7 @@ hadoop fs -put data/enron-emails-inbox/* enron-inbox
 
 ## Mapreduce
 
-Refer to README in `mapreducers/` to find more info about the mappers and reducers. They can be executed **in shell** or using **hadoop streaming API**. Below are examples for the first mapreduce job. To execute the other one change the digit in the names of the mapper and reducer from 1 to 2.
+Refer to [README.md](mapreduces/README.md) in `mapreducers/` to find more info about the mappers and reducers. They can be executed **in shell** or using **hadoop streaming API**. Below are examples for the first mapreduce job. To execute the other one change the digit in the names of the mapper and reducer from 1 to 2.
 
 ### Hadoop
 
