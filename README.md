@@ -13,6 +13,10 @@ The reason it is an intersting project is to see how a network of people behaved
 
 The most challenging part of this project was coming up with rules to extract the metrics we wanted from the emails using mapreduce. We have done this with regular expressions, python and unix shell/hadoop. Additionally, it so happened that **one worker node is much slower than shell** when executing the mapreduce jobs. We provide examples in the code section for both shell and hadoop. We ran two mapreduce jobs in shell and they completed in around 25 minutes each.
 
+## R Network Analysis
+
+Links to R analysis [with code](https://rpubs.com/Koba/enron-network-code) and [without code](https://rpubs.com/Koba/enron-network).
+
 ## Code
 ## Upload Enron data to hadoop
 
@@ -45,27 +49,48 @@ Refer to [README.md](mapreducers/README.md) in `mapreducers/` to find more info 
 
 ```
 hadoop jar /usr/lib/hadoop-mapreduce/hadoop-streaming.jar -input enron-sent \
--output enron-sent-out -file mapper1.py -file reducer1.py \
+-output conns-sent -file mapper1.py -file reducer1.py \
 -mapper mapper1.py -reducer reducer1.py
 
 hadoop jar /usr/lib/hadoop-mapreduce/hadoop-streaming.jar -input enron-inbox \
--output enron-inbox-out -file mapper1.py -file reducer1.py \
+-output conns-inbox mapper1.py -file reducer1.py \
 -mapper mapper1.py -reducer reducer1.py
 
 # download results
-hadoop fs -get training/shakespeare/poems ~/shakepoems.txt
+hadoop fs -cat conns-sent > conns-sent.txt
+hadoop fs -cat conns-inbox > conns-inbox.txt
+```
+
+Edit the `reducer1.py` file. Comment out lines 37 and 43. Uncomment lines  38 and 44.
+
+For below commands I just changed the output filename to `n-conns-inbox.txt`.
+
+```
+hadoop jar /usr/lib/hadoop-mapreduce/hadoop-streaming.jar -input enron-sent \
+-output n-conns-sent -file mapper2.py -file reducer2.py \
+-mapper mapper1.py -reducer reducer2.py
+
+hadoop jar /usr/lib/hadoop-mapreduce/hadoop-streaming.jar -input enron-inbox \
+-output n-conns-inbox mapper2.py -file reducer2.py \
+-mapper mapper2.py -reducer reducer2.py
+
+# download results
+hadoop fs -cat n-conns-sent > n-conns-sent.txt
+hadoop fs -cat n-conns-inbox > n-conns-inbox.txt
 ```
 
 ### Shell
 
 ```bash
-find ../data/enron-emails/*/inbox/* -name '*.' -exec cat {} \; | python mapper1.py | sort | python reducer1.py > ../data/n-conns-inbox.txt
+find ../data/enron-emails-inbox/* -name '*.' -exec cat {} \; | python mapper1.py | sort | python reducer1.py > ../data/conns-inbox.txt
 
-find ../data/enron-emails/*/sent/* -name '*.' -exec cat {} \; | python mapper1.py | sort | python reducer1.py > ../data/n-conns-inbox.txt
+find ../data/enron-emails-sent/* -name '*.' -exec cat {} \; | python mapper1.py | sort | python reducer1.py > ../data/conns-inbox.txt
 ```
 
-## R Network Analysis
+Same as for the hadoop usage.
 
-Links to R analysis [with code](https://rpubs.com/Koba/enron-network-code) and [without code](https://rpubs.com/Koba/enron-network).
+```bash
+find ../data/enron-emails-inbox/* -name '*.' -exec cat {} \; | python mapper1.py | sort | python reducer1.py > ../data/n-conns-inbox.txt
 
-Link to [github repo]().
+find ../data/enron-emails-sent/* -name '*.' -exec cat {} \; | python mapper1.py | sort | python reducer1.py > ../data/n-conns-inbox.txt
+```
