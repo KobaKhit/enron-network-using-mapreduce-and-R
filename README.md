@@ -8,9 +8,9 @@
 
 ## What it is about?
 
-We explore the social network aspect of the [Enron Email dataset](http://www.cs.cmu.edu/~enron/). We use hadoop and shell as an alternative to transform the semi-unstructured email data into something we can work with. Using this data we will be able to visualize the social network grouped by the metrics such as edge betwenness, centrality index, etc. 
+We explore the social network aspect of the [Enron Email dataset](http://www.cs.cmu.edu/~enron/). The goal is to see how a network of people behaved in a company that was caught doing fraud and how the knowledge flowed through the network. Additionally, this project is a great way to learn about dealing with large unstructured data using the mapreduce concept and open source tools like hadoop virtual machine and R.
 
-The reason it is an intersting project is to see how a network of people behaved in a company that was caught doing fraud and how the knowledge flowed through the network. Additionally, this project is a great way to learn about dealing with large unstructured data using the mapreduce concept and open source tools like hadoop virtual machine and R.
+We use hadoop and shell as an alternative to transform the semi-unstructured email data into something we can work with. Using this data we will be able to visualize the social network grouped by the metrics such as edge betwenness, centrality index, etc. 
 
 The most challenging part of this project was coming up with rules to extract the metrics we wanted from the emails using mapreduce. We have done this with regular expressions, python and unix shell/hadoop. Additionally, it so happened that **one worker node is much slower than shell** when executing the mapreduce jobs. We provide examples in the code section for both shell and hadoop. We ran two mapreduce jobs in shell and they completed in around 25 minutes each.
 
